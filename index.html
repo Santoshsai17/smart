@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Custom Toggle Switch with Image</title>
+    <link rel="stylesheet" href="s.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+
+    <style>
+        body {
+            transition: background-color 0.4s;
+            
+            }
+
+        .dark-mode {
+        background-color: #333;
+        color: white;
+        }
+
+        .e {
+      position: fixed;
+      width: 300px;
+      height: 300px;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      text-align: center;
+      line-height: 100px;
+      font-size: 16px;
+      cursor: pointer;
+
+    }
+    
+    /* Corner divs with specific positions */
+    .top-0 {
+      top: 0;
+      left: 0;
+    }
+    
+    .top-1 {
+      top: 0;
+      right: 0;
+    }
+    
+    .top-2 {
+      bottom: 0;
+      left: 0;
+    }
+    
+    .top-3 {
+      bottom: 0;
+      right: 0;
+    }
+
+
+
+
+
+
+
+        /* .switch-image {
+            top: 0;
+            margin-left: 20px;
+            width: 100px;
+            height: 100px;
+            background-size: cover;
+            background-position: center;
+            background-color: red;3
+            cursor: pointer;
+        }
+
+        .switch-image1 {
+            position: absolute;
+
+            top: 0;
+            margin-left: 20px;
+            width: 100px;
+            height: 100px;
+            background-size: cover;
+            background-position: center;
+            background-color: red;
+            cursor: pointer;
+        }
+        .switch-image2{
+            position:absolute;
+            margin-top: 150px;
+            margin-left: 20px;
+            width: 100px;
+            height: 100px;
+            background-size: cover;
+            background-position: center;
+            background-color: red;
+            cursor: pointer;
+        }
+
+        .switch-image3{
+            position:absolute;
+            margin-top: 150px;
+            left: 140px;
+            width: 100px;
+            height: 100px;
+            background-size: cover;
+            background-position: center;
+            background-color: red;
+            cursor: pointer;
+        } */
+
+    </style>
+
+
+</head>
+<body>
+    
+    <img id="status" class="e top-0" src="http://img.freepik.com/free-icon/on-off-power-button_318-30220.jpg?size=338&ext=jpg" alt="Image Button" onclick="fetchData()">
+    <img id="status" class="e top-1" src="http://img.freepik.com/free-icon/on-off-power-button_318-30220.jpg?size=338&ext=jpg" alt="Image Button" onclick="fetchData()">
+    <img id="status" class="e top-2" src="http://img.freepik.com/free-icon/on-off-power-button_318-30220.jpg?size=338&ext=jpg" alt="Image Button" onclick="fetchData()">
+    <img id="status" class="e top-3" src="http://img.freepik.com/free-icon/on-off-power-button_318-30220.jpg?size=338&ext=jpg" alt="Image Button" onclick="fetchData()">
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        var u="https://blr1.blynk.cloud/external/api/update?token=UkRb4w_XDW9UI4xQOXd1TjizW1PbJWWo&v1=";
+        const v="https://blr1.blynk.cloud/external/api/get?token=UkRb4w_XDW9UI4xQOXd1TjizW1PbJWWo&v1"
+        const switchImage = document.querySelector('.e');
+        var switchValue = 1;
+        checkData()
+        function fetchData() {
+            console.log('sswitchValue', switchValue)
+            axios.get(u + switchValue)
+            .then(response => {
+                console.log('response113344', response)
+
+                if (switchValue == 1) {
+                    switchValue = 0
+                    switchImage.src = "https://i.etsystatic.com/11131775/r/il/cc15e5/929271850/il_fullxfull.929271850_i367.jpg"
+                } else {
+                    switchValue = 1
+                    switchImage.src = "http://img.freepik.com/free-icon/on-off-power-button_318-30220.jpg?size=338&ext=jpg"
+                }
+                
+                })
+            .catch(error => {
+                console.error('Error sending value:', error);
+            });
+        }
+        function checkData() {
+            axios.get(v)
+            .then(response => {
+                if (response.data == 1) {
+                    switchValue = 0
+                    switchImage.src = "https://i.etsystatic.com/11131775/r/il/cc15e5/929271850/il_fullxfull.929271850_i367.jpg"
+                } else {
+                    switchValue = 1
+                    switchImage.src = "http://img.freepik.com/free-icon/on-off-power-button_318-30220.jpg?size=338&ext=jpg"
+                }
+            })
+            .catch(error => {
+                console.error('Error sending value:', error);
+            });
+            
+        }
+        
+    </script>
+</body>
+</html>
