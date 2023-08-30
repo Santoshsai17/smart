@@ -1,0 +1,80 @@
+body {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  
+  /* background-color: #121212; */
+}
+
+.theme-toggle{
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background-image: url(https://www.flaticon.com/free-icon/theme_11549913);
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.dark-mode {
+  background-image: url(https://www.wallpaperflare.com/static/644/305/118/pattern-black-gradient-texture-wallpaper.jpg);
+  color: white;
+}
+
+.light-mode {
+  background-image: url(https://wallpapertag.com/wallpaper/full/8/a/b/156686-amazing-white-gradient-background-1920x1200-htc.jpg);
+  color: #333;
+  
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.round-button {
+  margin: 10px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: none;
+  background-color: #333;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.round-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
+}
+
+#button1 {
+  background-color: #ff6347;
+}
+
+#button2 {
+  background-color: #1e90ff;
+}
+
+#button3 {
+  background-color: #32cd32;
+}
+
+#button4 {
+  background-color: #f39c12;
+}
+
