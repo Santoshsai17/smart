@@ -3,21 +3,23 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
+
+  
   <title>Round Buttons</title>
 </head>
 <body>
     <dialog></dialog>
     <div class="container">
+    <div onclick="changeAlign()" class="alignment"></div>
     <button class="theme-toggle"></button>
     <button onclick="switchFunction()" id="status" class="round-button" >Button 1</button>
-<!--     <img  class="drop" onclick="dropDown()" src="https://api.iconify.design/icons8:angle-down.svg" alt="">
-     -->
-<!--       
+    <img  class="drop" onclick="dropDown()" src="https://api.iconify.design/icons8:angle-down.svg" alt="">
+    
     <button onclick="switchFunction()" id="status" class="round-button" >Button 2</button>
     <button onclick="switchFunction()" id="status" class="round-button" >Button 3</button>
-    <button onclick="switchFunction()" id="status" class="round-button" >Button 4</button> -->
+    <button onclick="switchFunction()" id="status" class="round-button" >Button 4</button>
     
 
 
@@ -35,6 +37,7 @@
         var u="https://blr1.blynk.cloud/external/api/update?token=UkRb4w_XDW9UI4xQOXd1TjizW1PbJWWo&v1=";
         const v="https://blr1.blynk.cloud/external/api/get?token=UkRb4w_XDW9UI4xQOXd1TjizW1PbJWWo&v1"
         const switchImage = document.getElementById('status');
+
         var switchValue = '';
         checkData()
         function switchFunction() {
@@ -98,6 +101,21 @@
         console.log(savedTheme)
         if(savedTheme=='light'){
             document.querySelector(".round-button").style.boxShadow='0 4px 8px black'
+        }
+
+        function dropDown(){
+            
+        }
+        const align=document.querySelector(".container");
+        var switchAlign =0;
+        function changeAlign() {
+            if (switchAlign == 1) {
+                switchAlign = 0
+                align.style.flexDirection = 'column';
+            } else {
+                switchAlign = 1
+                align.style.flexDirection = 'row';
+            }
         }
 
     </script>
